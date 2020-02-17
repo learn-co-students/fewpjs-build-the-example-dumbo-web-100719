@@ -3,7 +3,30 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+const modal = document.getElementById("modal")
+let hearts = document.querySelectorAll(".like-glyph")
 
+function toggleModal() {
+  if (modal.hidden === false){
+    modal.className = "hidden";
+  }
+}
+
+toggleModal()
+
+for (let glyph of hearts) {
+  glyph.addEventListener("click", handleClick);
+}
+
+function handleClick(e) {
+    let heart = e.target;
+    if (heart.classList.value === "like-glyph"){
+      heart.classList.add("activated-heart")
+    } else {
+      heart.classList.remove("activated-heart");
+    }
+    
+}
 
 
 
